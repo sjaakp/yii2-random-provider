@@ -1,0 +1,22 @@
+{
+    "name": "sjaakp/yii2-random-provider",
+    "description": "Random ActiveDataProvider for Yii 2.0 GridView or ListView",
+    "keywords": ["yii", "yii2", "extension", "random", "GridView", "ListView", "data"],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sjaak Priester",
+            "email": "sjaak@sjaakpriester.nl",
+            "homepage": "https://sjaakpriester.nl"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "sjaakp\\randomprovider\\": ""
+        }
+    }
+}
