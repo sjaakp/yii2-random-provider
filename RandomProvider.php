@@ -98,8 +98,11 @@ class RandomProvider extends ActiveDataProvider
                 // Notice that the order of the records will probably be different
                 return $query->where([ 'in', $pId, $visited[$key] ])->orderBy('')->all($this->db);
             }
-            $limit = $pagination->pageSize;
-            if ($page >= ($pagination->pageCount - 1)) $limit = $pagination->totalCount % $limit;
+            $pageSize = $pagination->pageSize;
+            $limit = $pagination->totalCount % $pageSize;
+            if ($limit == 0 || $page < ($pagination->pageCount - 1))  {
+                $limit = $pageSize;
+            }
             $query->limit($limit);
             if (count($visited))   {   // select records not previously selected
                 $query->andWhere([
