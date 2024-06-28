@@ -2,8 +2,8 @@
 
 /**
  * MIT licence
- * Version 1.0
- * Sjaak Priester, Amsterdam 09-12-2019.
+ * Version 1.0.2
+ * Sjaak Priester, Amsterdam 28-06-2024.
  *
  * RandomProvider - unordered data-provider for Yii 2.0
  */
@@ -106,7 +106,7 @@ class RandomProvider extends ActiveDataProvider
             $query->limit($limit);
             if (count($visited))   {   // select records not previously selected
                 $query->andWhere([
-                    'not in', $pId, call_user_func_array("array_merge", $visited)
+                    'not in', $pId, call_user_func_array("array_merge", array_values($visited))
                 ]);
             }
         }
